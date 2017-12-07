@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 	/*initializing health, damage, speed, animator...
 	 * 
 	 */
+
 	public int healthPoints = 2;
 	public int attackDamage = 1;
 	public float speed = 2.5f;
@@ -17,18 +18,14 @@ public class Enemy : MonoBehaviour
 
 	private bool dead = false;
 	private Transform frontcheck;
-	/// <summary>
-	/// Awake this instance.
-	/// </summary>
+
 	void Awake ()
 	{
 		
 		frontcheck = transform.Find ("frontcheck").transform;
 
 	}
-	/// <summary>
-	/// Fixeds the update.
-	/// </summary>
+	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
@@ -45,33 +42,21 @@ public class Enemy : MonoBehaviour
 		if (healthPoints <= 0 && !dead)
 			Death ();
 	}
-	/// <summary>
-	/// Loses health.
-	/// </summary>
-	public void LoseHealth ()
-	{
-		healthPoints--;
-	}
-	/// <summary>
-	/// Death this instance.
-	/// </summary>
+
+
+
 	public void Death ()
 	{
 		dead = true;
 	}
-	/// <summary>
-	/// Flip this instance.
-	/// </summary>
+
 	void Flip ()
 	{
 		Vector3 EnemyScale = transform.localScale;
 		EnemyScale.x *= -1;
 		transform.localScale = EnemyScale;
 	}
-	/// <summary>
-	/// Raises the trigger enter2 d event.
-	/// </summary>
-	/// <param name="col">Col.</param>
+
 	public void OnTriggerEnter2D (Collider2D col)
 	{
 		//if player hits enemies, it loses health

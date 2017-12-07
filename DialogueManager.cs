@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 	void Update ()
 	{
 		//When space is pressed and is up, dialogue box will disappear
-		if (dialogActive==true && Input.GetKeyUp (KeyCode.Space)) {
+		if (dialogActive==true && Input.GetKeyUp (KeyCode.X)) {
 			dialogueBox.SetActive (false);
 			dialogActive=false;
 			player.canMove = true;
